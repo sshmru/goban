@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <title>Parse SGF to JSON in Javascript</title>
+    <script type="text/javascript" src="sgf.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        document.getElementById( 'form_sgf' ).onsubmit = function() {
+          parse_sgf( document.getElementById( 'textarea_sgf' ).value );
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form id="form_sgf">
+      <textarea id="textarea_sgf">
+(
+;FF[4]GM[1]
+PC[Dragon Go Server: http://www.dragongoserver.net/]
+DT[2012-01-21,2012-02-14]
+GN[Thoams-sboye-707205-20120214]
+GC[Game ID: 707205, rated]
+PB[Simon Boyer (sboye)]
+PW[Thomas ZILLIOX (Thoams)]
+BR[26 kyu]
+WR[18 kyu]
+OT[Fischer time: 10 days with 1 day extra per move]
+RU[Japanese]
+SZ[13]
+KM[-5.5]
+HA[4]
+AB[dd][jj][dj][jd]PL[W]
+;MN[1]W[fc]
+;B[ec]
+;W[hc]
+;B[ic]
+;W[kd]
+;B[kc]
+;W[lc]
+;B[ke]
+;W[ld]
+;B[le]
+;W[kb]
+;B[jc]
+;W[hk]
+;B[ik]
+;W[fk]
+;B[cg]
+;W[ch]
+;B[ci]
+;W[dh]
+;B[bh]
+;W[ef]
+;B[de]
+;W[kh]
+;B[ki]
+;W[lh]
+;B[li]
+;W[cc]
+;B[bc]
+;W[dc]
+;B[gc]
+;W[eb]
+;B[ed]
+;W[gd]
+;B[gb]
+;W[fb]
+;B[hb]
+;W[cf]
+;B[bf]
+;W[ce]
+;B[cd]
+;W[df]
+;B[be]
+;W[bb]
+;B[ac]
+)
+      </textarea>
+      <button type="submit">Parse SGF</button>
+    </form>
+  </body>
+</html>

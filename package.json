@@ -1,0 +1,16 @@
+{
+  "name": "baduk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pixi.js": "^3.0.8",
+    "sob": "git+https://github.com/sshmru/sob.git",
+    "webpack": "^1.12.14"
+  }
+}
