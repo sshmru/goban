@@ -5,6 +5,7 @@ module.exports = function($intent){
 	
 	var state = {
 		//board: [[0,1,2 ...], ...]
+		//boardNumbers: [[0,1,2 ...], ...]
 		//move: Number 
 		//moves: [[x,y], ...]
 		//turn: Number 0 - pause, 1 - black, 2 - white
@@ -15,7 +16,7 @@ module.exports = function($intent){
 		init: function(){
 			state.lines = settings.lines;
 			state.move = settings.firstMove;
-			state.turn = 1;
+			state.turn = settings.firstTurn;
 			state.players = [ctrl.createPlayer(), ctrl.createPlayer()];
 			
 			var l = state.lines;
@@ -27,8 +28,24 @@ module.exports = function($intent){
 				}
 			}
 			state.board = board;
+			state.boardNumbers = board.map(function(x){return x.slice()});
 			
-			ctrl.randomBoard();
+			ctrl.createBoard();
+		},
+		createBoard: function(random){
+			for(var i = 0; i < state.lines; i++){
+				for(var j = 0; j < state.lines; j++){
+					state.board[i][j] = random ? Math.round(Math.random()*100000)%3 : 0;
+				}
+			}
+		},
+		reset: function(data){
+			init();
+			for(var i = 0; i < state.lines; i++){
+				for(var j = 0; j < state.lines; j++){
+					state.board[i][j] = data.board[i][j];
+				}
+			}
 		},
 		createPlayer: function(){
 			return {
@@ -41,22 +58,18 @@ module.exports = function($intent){
 		move: function(point){
 			var x = point[0];
 			var y = point[1];
-			console.log(point)
 			if(ctrl.isPossibleMove(x, y, state.turn)){
 				state.board[x][y] = state.turn;
-				console.log(state.turn)
+				state.boardNumbers[x][y] = state.move;
+				state.move ++;
 				ctrl.switchTurn();
 			}
 		},
 		isPossibleMove: function(x, y, player){
 			return !state.board[x][y];
 		},
-		randomBoard: function(){
-			for(var i = 0; i < state.lines; i++){
-				for(var j = 0; j < state.lines; j++){
-					state.board[i][j] = 0//Math.round(Math.random()*100000)%3;
-				}
-			}
+		groupStones: function(){
+			var b = v.state.board;
 		}
 	};
 	

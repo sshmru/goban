@@ -1,6 +1,7 @@
 var settings = {
 	lines: 19,
-	firstMove: 0
+	firstTurn: 1,
+	firstMove: 1
 };
 
 module.exports = settings;

@@ -13,6 +13,12 @@ module.exports = function($user){
 				'name': 'move',
 				'data': e.data
 			};
+		},
+		'set.board': function(e){
+			return {
+				'name': 'reset',
+				'data': e.data
+			};
 		}
 	};
 	

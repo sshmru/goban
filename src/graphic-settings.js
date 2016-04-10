@@ -7,9 +7,10 @@ var settings = {
 	starDiameter: 4,
 	stoneDiameter: 22.5
 };
-
 Object.keys(settings).forEach(function(k){
 	settings[k] = settings[k] * 2;
 });
+
+settings.moveNumbers = true;
 
 module.exports = settings;

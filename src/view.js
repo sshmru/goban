@@ -73,7 +73,8 @@ module.exports = function($model){
 			return row.map(function(color, j){
 				var x = settings.spacingX/2 + i*settings.spacingX;
 				var y = settings.spacingY/2 + j*settings.spacingY;
-				var stone  = new Stone(x, y,  color);
+				var number = settings.moveNumbers && state.boardNumbers[i][j];
+				var stone  = new Stone(x, y,  color, number);
 				stone.x = x;
 				stone.y = y;
 				stone.$events.sub(bindStoneClick(i,j));
@@ -105,6 +106,9 @@ module.exports = function($model){
 		state.board.forEach(function(row, i){
 			row.forEach(function(color, j){
 				view.intersections[i][j].setColor(color);
+				
+				if(settings.moveNumbers)
+					view.intersections[i][j].setNumber(state.boardNumbers[i][j]);
 			});
 		});
 	};

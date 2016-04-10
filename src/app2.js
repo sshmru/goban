@@ -4,6 +4,9 @@ var model = require('./model.js');
 var view = require('./view.js');
 var intent = require('./intent.js');
 
+var parseSGF = require('./sgf.js');
+var exampleSGF = require('raw!./macisajt-rapyuta.sgf');
+
 var RAF = new Sob(function(next){
 	var cb = function(){
 		next();
@@ -15,10 +18,17 @@ var RAF = new Sob(function(next){
 
 module.exports = function(document){
 	
-	var loaded = Sob.fromDOMEvent(document, 'DOMContentLoaded');
 	
+	var turns = parseSGF(exampleSGF).turns;
+	var playback = Sob.fromInterval(700).map(function(i){
+		return {
+			'type': 'button.click',
+			'data': turns[i]
+		}
+	});
+	var loaded = Sob.fromDOMEvent(document, 'DOMContentLoaded');
 	var user = new Sob();
-	var events = user.merge(loaded);
+	var events = user.merge(loaded).merge(playback);
 	
 	var cycle = view(model(intent(events)));
 	

@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "pixi.js": "^3.0.8",
+    "raw-loader": "^0.5.1",
     "sob": "git+https://github.com/sshmru/sob.git"
   },
   "devDependencies": {
