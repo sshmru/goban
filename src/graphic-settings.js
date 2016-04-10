@@ -11,6 +11,5 @@ var settings = {
 Object.keys(settings).forEach(function(k){
 	settings[k] = settings[k] * 2;
 });
-settings.lines = 19;
 
 module.exports = settings;

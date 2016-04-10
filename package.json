@@ -4,13 +4,17 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack --watch"
   },
-  "author": "",
+  "author": "Piotr Malinowski",
   "license": "ISC",
   "dependencies": {
     "pixi.js": "^3.0.8",
-    "sob": "git+https://github.com/sshmru/sob.git",
+    "sob": "git+https://github.com/sshmru/sob.git"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.11.2",
+    "browser-sync-webpack-plugin": "^1.0.1",
     "webpack": "^1.12.14"
   }
 }
