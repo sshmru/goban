@@ -65,9 +65,13 @@ Stone.prototype.setColor = function(color){
 	this._bg.texture = texture;
 };
 Stone.prototype.setNumber = function(number){
-	if(!number)
+	if(!number || this.number === number)
 		return;
-		
+	this.number = number
+	if(String(number).length > 2)
+		this._text.scale.x = 0.8;
+	else
+		this._text.scale.x = 1;
 	this._text.text = number;
 };
 

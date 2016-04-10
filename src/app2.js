@@ -20,7 +20,7 @@ module.exports = function(document){
 	
 	
 	var turns = parseSGF(exampleSGF).turns;
-	var playback = Sob.fromInterval(700).map(function(i){
+	var playback = Sob.fromInterval(500).map(function(i){
 		return {
 			'type': 'button.click',
 			'data': turns[i]
